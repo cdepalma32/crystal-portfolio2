@@ -14,7 +14,7 @@ const projects = [
     description:
       "Full-stack MERN application designed for interactive technical interview preparation with custom scrambling logic, topic filters, and user progress tracking.",
     longDescription:
-      "Developed a full-stack web app for algorithm prep, featuring custom scrambling logic, topic filters, and user progress tracking. Implemented JWT-based auth with REST APIs, mimicking real-world enterprise login flows. Styled with Tailwind and ShadCN UI, creating a polished user experience aligned with modern UI dashboards.",
+      "A fully custom interview preparation platform built using the MERN stack. It features unique scrambling logic for anagram-style quizzes, real-time topic filtering, and user progress tracking. Designed with secure JWT authentication and REST APIs, the app mirrors enterprise login flows. Frontend is styled with Tailwind and ShadCN UI, offering a clean, modern dashboard experience tailored for practicing technical interviews.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-22%20193944-7zrh8CpBD6P0uISCM3RxEkIMUwWkf4.png", // Updated to use the purple background MERN stack banner
     technologies: [
@@ -36,27 +36,27 @@ const projects = [
   },
   {
     id: 2,
-    title: "Prompt Engineering Portfolio",
+    title: "TaxBuddy AI",
     description:
-      "GPT-4 / Claude Prompt Testing & LLM Integration Work focusing on designing and testing prompts across real-world coding and reasoning tasks.",
+      "AI-powered app delivering personalized tax-saving suggestions using Angular, FastAPI, and Azure OpenAI.",
     longDescription:
-      "Designing and testing prompts across real-world coding + reasoning tasks to improve LLM output behavior. Creating UI and logic flow sketches for LLM-integrated developer tools. Building a basic LangChain-powered chatbot app with Node.js backend to explore prompt chaining and context management.",
+      "A cloud-native, full-stack AI application that uses Angular on the frontend and FastAPI on the backend to provide users with personalized, LLM-powered tax advice. It demonstrates enterprise-level architectural patterns including secure JWT-based authentication, Azure SQL for structured data storage, and OpenAI integration for intelligent insights. Built as a showcase of scalable backend logic, modular service design, and real-world AI use cases.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/promptEngineerIMG-RIWJd6UJO5U1Hag4lGSCcj6Gu0tmQj.webp",
     technologies: [
-      "GPT-4",
-      "Claude",
-      "LangChain",
-      "Node.js",
-      "JavaScript",
-      "Express.js",
-      "OpenAI API",
-      "Hugging Face Hub",
-      "Markdown GitHub",
+      "Angular",
+      "FastAPI",
+      "Python",
+      "Azure SQL",
+      "JWT",
+      "Pydantic",
+      "Azure OpenAI",
+      "Bootstrap",
+      "TypeScript",
     ],
     category: "AI Integration",
-    featured: false,
-    github: null,
+    featured: true,
+    github: "https://github.com/cdepalma32/TaxBuddyAI",
     live: null,
     status: "In Development",
   },
@@ -64,9 +64,9 @@ const projects = [
     id: 3,
     title: "Get-LiTerary-extended",
     description:
-      "Early full-stack group project focused on backend architecture and routing logic. Served as the primary backend developer, implementing authentication, API endpoints, and data flow. Planned for future refactor and feature expansion.",
+      "Full-stack group project where I served as the primary backend developer, implementing authentication, API endpoints, and data flow.",
     longDescription:
-      "Early full-stack group project focused on backend architecture and routing logic. Served as the primary backend developer, implementing authentication, API endpoints, and data flow. Planned for future refactor and feature expansion.",
+      "An earlier project during my bootcamp days to show my growth.",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/gitLITIMG.jpg-yNpCbPuYTXrDlCQbg7VReeNXUC3oTi.jpeg",
     technologies: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Handlebars", "JavaScript"],
     category: "Backend",
@@ -79,21 +79,17 @@ const projects = [
     id: 4,
     title: "CodeLab",
     description:
-      "Interactive coding sandbox designed for testing, refining, and sharing real-time JavaScript logic, algorithms, and code snippets. Ideal for rapid prototyping and practicing concepts like recursion, data structures, or utility functions across various coding scenarios.",
+      "A personal JavaScript study guide designed to document and test algorithmic thinking and core logic patterns.",
     longDescription:
-      "Interactive coding sandbox designed for testing, refining, and sharing real-time JavaScript logic, algorithms, and code snippets. Ideal for rapid prototyping and practicing concepts like recursion, data structures, or utility functions across various coding scenarios. Features real-time code execution, syntax highlighting, and collaborative sharing capabilities.",
+      "CodeLab functions as an interactive JavaScript reference and problem-solving journal. It was built to reinforce my understanding of core programming concepts like recursion, sorting, and data structures. Through live code testing, I could prototype logic, annotate patterns, and revisit solved challenges—all in one cohesive tool. Created to deepen technical clarity while preparing for real-world interview scenarios and algorithmic assessments.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-07-22%20195022-5YR5y2lxZEIJANekRUJOUWJU9VOzDq.png", // Updated to use the simplified CodeLab banner
     technologies: [
       "JavaScript",
-      "React.js",
       "Node.js",
-      "Express.js",
-      "Monaco Editor",
-      "WebSockets",
-      "Code Execution",
-      "Algorithms",
-      "Data Structures",
+      "VS Code + Console",
+      "Modular File Structure",
+      "Comment-based Documentation",
     ],
     category: "Technical Guide",
     featured: true,
@@ -238,18 +234,19 @@ export default function ProjectShowcase() {
                             </Button>
                           )}
                           {project.live ? (
-                            <Button size="sm" asChild>
-                              <a href={project.live} target="_blank" rel="noopener noreferrer">
-                                <ExternalLink className="mr-2 h-4 w-4" />
-                                Live Demo
-                              </a>
-                            </Button>
-                          ) : (
-                            <Button size="sm" variant="outline" disabled>
-                              <ExternalLink className="mr-2 h-4 w-4" />
-                              Live Demo (Coming Soon)
-                            </Button>
-                          )}
+                      <Button size="sm" asChild>
+                          <a href={project.live} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                            Live Demo
+                            </a>
+                              </Button>
+                          ) : project.id !== 3 && project.id !== 4 ? ( // Only show "Coming Soon" for others
+                        <Button size="sm" variant="outline" disabled>
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Live Demo (Coming Soon)
+                          </Button>
+                          ) : null}
+
                           {!project.github && !project.live && (
                             <Button size="sm" variant="outline" disabled>
                               <Github className="mr-2 h-4 w-4" />
