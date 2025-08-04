@@ -55,7 +55,7 @@ const projects = [
       "TypeScript",
     ],
     category: "AI Integration",
-    featured: true,
+    featured: false,
     github: "https://github.com/cdepalma32/TaxBuddyAI",
     live: null,
     status: "In Development",
@@ -197,7 +197,7 @@ export default function ProjectShowcase() {
                       />
                       <div className="absolute top-4 left-4 flex gap-2">
                         <Badge className="bg-background/90 text-foreground">{project.status}</Badge>
-                        {project.featured && <Badge className="bg-primary/90 text-primary-foreground">Featured</Badge>}
+                       {/*} {project.featured && <Badge className="bg-primary/90 text-primary-foreground">Featured</Badge>} */}
                       </div>
                       <div className="absolute top-4 right-4">
                         <Badge variant="secondary" className="bg-background/90">
