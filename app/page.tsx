@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
 import { useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, Menu, X, Code } from "lucide-react"
+// 🔻 CHANGED: removed `Code` since we no longer show the Explore button
+import { Github, Linkedin, Mail, Menu, X } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import TechStackVisualization from "@/components/tech-stack-visualization"
 import ProjectShowcase from "@/components/project-showcase"
@@ -24,12 +25,13 @@ export default function Portfolio() {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
+    { name: "Resume", href: "/resTECH.pdf", external: true },
     { name: "Tech Stack", href: "#tech" },
     { name: "Projects", href: "#projects" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "Blog", href: "#blog" },
     { name: "Contact", href: "#contact" },
-  ]
+  ];
 
   return (
     <motion.div
@@ -80,6 +82,8 @@ export default function Portfolio() {
                   <motion.a
                     key={item.name}
                     href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
@@ -97,6 +101,8 @@ export default function Portfolio() {
                   <motion.a
                     key={item.name}
                     href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
@@ -181,6 +187,7 @@ export default function Portfolio() {
               </motion.p>
             </div>
 
+            {/* 🔻 CHANGED: Replace Explore My Builds with Resume button in the primary CTA spot */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -190,12 +197,14 @@ export default function Portfolio() {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-8 py-4 shadow-2xl button-bounce hover-glow border-0 font-semibold"
-                onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+                asChild
               >
-                <Code className="mr-2 h-5 w-5" />
-                Explore My Builds
+                <a href="/resTECH.pdf" target="_blank" rel="noopener noreferrer">
+                  Resume
+                </a>
               </Button>
             </motion.div>
+            {/* 🔻 END CHANGED */}
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -234,6 +243,27 @@ export default function Portfolio() {
                 </motion.div>
               ))}
             </motion.div>
+
+            {/* 🔻 REMOVED: the lower Resume block that used to sit under the icons */}
+            {/*
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.9, duration: 0.6 }}
+              className="flex justify-center pt-6"
+            >
+              <Button
+                variant="ghost"
+                className="px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 hover-lift shadow-lg transition-all duration-300"
+                asChild
+              >
+                <a href="/resTECH.pdf" target="_blank" rel="noopener noreferrer">
+                  Resume
+                </a>
+              </Button>
+            </motion.div>
+            */}
+            {/* 🔻 END REMOVED */}
           </motion.div>
         </div>
 
