@@ -25,7 +25,7 @@ export default function Portfolio() {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Resume", href: "/resTECH.pdf", external: true },
+    { name: "Resume", href: "/PortfolioRES.pdf", external: true },
     { name: "Tech Stack", href: "#tech" },
     { name: "Projects", href: "#projects" },
     { name: "Testimonials", href: "#testimonials" },
@@ -199,7 +199,7 @@ export default function Portfolio() {
                 className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-8 py-4 shadow-2xl button-bounce hover-glow border-0 font-semibold"
                 asChild
               >
-                <a href="/resTECH.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/PortfolioRES.pdf" target="_blank" rel="noopener noreferrer">
                   Resume
                 </a>
               </Button>
@@ -243,27 +243,6 @@ export default function Portfolio() {
                 </motion.div>
               ))}
             </motion.div>
-
-            {/* 🔻 REMOVED: the lower Resume block that used to sit under the icons */}
-            {/*
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.9, duration: 0.6 }}
-              className="flex justify-center pt-6"
-            >
-              <Button
-                variant="ghost"
-                className="px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 hover-lift shadow-lg transition-all duration-300"
-                asChild
-              >
-                <a href="/resTECH.pdf" target="_blank" rel="noopener noreferrer">
-                  Resume
-                </a>
-              </Button>
-            </motion.div>
-            */}
-            {/* 🔻 END REMOVED */}
           </motion.div>
         </div>
 
