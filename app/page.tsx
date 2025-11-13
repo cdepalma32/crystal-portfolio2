@@ -181,9 +181,7 @@ export default function Portfolio() {
                   textShadow: "1px 1px 3px rgba(0,0,0,0.7)",
                 }}
               >
-                Prompt-first Full-Stack Engineer specializing in backend architecture, building secure, AI-powered tools
-                with Node.js, MongoDB, and React. Passionate about resilient APIs, seamless data flow, and
-                human-centered system design.
+                Full-Stack & Cloud Engineer specializing in backend architecture, FastAPI services, Azure deployments, and AI-powered features. Focused on building secure APIs, resilient data flow, and scalable system design.
               </motion.p>
             </div>
 
